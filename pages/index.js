@@ -1,6 +1,13 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    setText(getText());
+  }, []);
+
   const getText = () => {
     const date = new Date();
     const hours = date.getHours();
@@ -20,7 +27,7 @@ export default function Home() {
       <Head>
         <title>Upravil už Lang rozvrh?</title>
       </Head>
-      <h1>{getText()}</h1>
+      <h1>{text}</h1>
     </>
   );
 }
